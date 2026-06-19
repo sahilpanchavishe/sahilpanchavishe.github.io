@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sahil Panchavishe — Portfolio</title>
+  <meta name="description" content="Sahil Panchavishe — Robotics & AI Engineer, Quant Finance Analyst, Full-Stack Developer, VFX Editor."/>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+<!-- SCROLL PROGRESS -->
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- VIDEO LIGHTBOX -->
+<div class="lightbox" id="lightbox" hidden>
+  <div class="lb-backdrop" id="lbBackdrop"></div>
+  <button class="lb-close" id="lbClose" aria-label="Close">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+  </button>
+  <div class="lb-inner">
+    <video class="lb-video" id="lbVideo" controls playsinline></video>
+    <p class="lb-caption" id="lbCaption"></p>
+  </div>
+</div>
+
+<!-- CURSOR -->
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a class="nav-logo" href="#hero">
+      <span class="logo-text">SP</span>
+      <span class="logo-dot"></span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about"     class="nav-link"><span>01</span>About</a></li>
+      <li><a href="#academics" class="nav-link"><span>02</span>Academics</a></li>
+      <li><a href="#projects"  class="nav-link"><span>03</span>Projects</a></li>
+      <li><a href="#editing"   class="nav-link"><span>04</span>Creative</a></li>
+      <li><a href="#hobbies"   class="nav-link"><span>05</span>Hobbies</a></li>
+      <li><a href="#contact"   class="nav-link"><span>06</span>Contact</a></li>
+    </ul>
+    <button class="nav-hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ══════════════════════════════════════
+     HERO
+══════════════════════════════════════ -->
+<section class="hero" id="hero">
+  <canvas class="hero-canvas" id="heroCanvas"></canvas>
+
+  <div class="hero-inner container">
+    <div class="hero-content">
+      <p class="hero-eyebrow"><span class="eyebrow-dot"></span>Available for Internships & Collaborations</p>
+
+      <h1 class="hero-name" id="heroName" aria-label="Sahil Panchavishe">
+        <span class="name-line" data-text="Sahil">Sahil</span>
+        <span class="name-line name-line-italic" data-text="Panchavishe">Panchavishe</span>
+      </h1>
+
+      <div class="hero-roles">
+        <span class="role-static">I am a</span>
+        <span class="typewriter" id="typewriter"></span><span class="tw-caret"></span>
+      </div>
+
+      <p class="hero-bio">4th-year B.Tech student at COEP Technological University, Pune — bridging the worlds of Robotics, Quantitative Finance, and Visual Media. I build things that are fast, intelligent, and beautiful.</p>
+
+      <div class="hero-actions">
+        <a href="#academics" class="cta-primary">
+          <span>Explore Work</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="#contact" class="cta-ghost">Get in Touch</a>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="profile-glow"></div>
+      <div class="profile-frame">
+        <img src="profile.jpg" alt="Sahil Panchavishe" class="profile-photo"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"/>
+        <div class="profile-fallback">SP</div>
+      </div>
+      <div class="profile-badge badge-cgpa">
+        <span class="pb-num" id="heroCgpa">8.62</span>
+        <span class="pb-lbl">CGPA</span>
+      </div>
+      <div class="profile-badge badge-year">
+        <span class="pb-num">4th</span>
+        <span class="pb-lbl">Year</span>
+      </div>
+    </div>
+  </div>
+
+  <a href="#about" class="hero-scroll" aria-label="Scroll down">
+    <span class="scroll-wheel"></span>
+    <span>Scroll</span>
+  </a>
+</section>
+
+<!-- ══════════════════════════════════════
+     STATS STRIP
+══════════════════════════════════════ -->
+<div class="stats-strip" id="about">
+  <div class="stats-inner container">
+    <div class="stat-item">
+      <span class="stat-num" data-target="8.62" data-decimals="2" data-suffix="">0.00</span>
+      <span class="stat-lbl">CGPA  <small>↑ +0.14 from last sem</small></span>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-item">
+      <span class="stat-num" data-target="4" data-decimals="0" data-suffix="+">0</span>
+      <span class="stat-lbl">Certifications</span>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-item">
+      <span class="stat-num" data-target="2" data-decimals="0" data-suffix="">0</span>
+      <span class="stat-lbl">Internships</span>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-item">
+      <span class="stat-num" data-target="3" data-decimals="0" data-suffix="+">0</span>
+      <span class="stat-lbl">Live Projects</span>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-item">
+      <span class="stat-num" data-target="2027" data-decimals="0" data-suffix="">0</span>
+      <span class="stat-lbl">Graduating</span>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     ABOUT / SKILLS
+══════════════════════════════════════ -->
+<section class="section" id="academics">
+  <div class="container">
+
+    <div class="section-label reveal">
+      <span class="sec-num">02</span>
+      <span class="sec-title">Academics &amp; Skills</span>
+    </div>
+
+    <!-- Education Timeline -->
+    <div class="timeline reveal">
+      <div class="tl-item tl-active">
+        <div class="tl-dot"></div>
+        <div class="tl-year">2023 — 2027</div>
+        <div class="tl-card">
+          <div class="tl-card-header">
+            <div>
+              <h3>B.Tech — Robotics and Artificial Intelligence</h3>
+              <p class="tl-org">COEP Technological University, Pune</p>
+            </div>
+            <div class="tl-cgpa-badge">
+              <span class="tl-cgpa-num">8.62</span>
+              <span class="tl-cgpa-lbl">CGPA</span>
+            </div>
+          </div>
+          <ul class="tl-details">
+            <li>Core: Data Structures, Algorithms, Machine Learning, Computer Vision</li>
+            <li>Electives: Financial Engineering, Data Analytics, Embedded Systems</li>
+            <li>Consistent upward CGPA trajectory — 6.5 → 7.4 → 7.9 → 8.48 → 8.62</li>
+          </ul>
+          <div class="tl-tags">
+            <span class="tl-tag">Robotics</span>
+            <span class="tl-tag">AI/ML</span>
+            <span class="tl-tag">Algorithms</span>
+            <span class="tl-tag">Data Analytics</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-year">2021 — 2023</div>
+        <div class="tl-card">
+          <div class="tl-card-header">
+            <div>
+              <h3>Higher Secondary — Science (PCM)</h3>
+              <p class="tl-org">HSC Board, Maharashtra</p>
+            </div>
+            <div class="tl-cgpa-badge tl-cgpa-alt">
+              <span class="tl-cgpa-num">12th</span>
+              <span class="tl-cgpa-lbl">Completed</span>
+            </div>
+          </div>
+          <ul class="tl-details">
+            <li>Distinction in Physics, Chemistry, Mathematics</li>
+            <li>Cracked JEE to earn a seat in the prestigious COEP Technological University</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Skills -->
+    <div class="skills-block reveal">
+      <h3 class="skills-heading">Technical Skills</h3>
+      <div class="skills-grid">
+
+        <div class="skills-col">
+          <p class="skill-cat">Languages</p>
+          <div class="skill-bar-row"><span>Java</span><div class="skill-track"><div class="skill-fill" data-width="90"></div></div><span class="skill-pct">90%</span></div>
+          <div class="skill-bar-row"><span>Python</span><div class="skill-track"><div class="skill-fill" data-width="85"></div></div><span class="skill-pct">85%</span></div>
+          <div class="skill-bar-row"><span>C / C++</span><div class="skill-track"><div class="skill-fill" data-width="75"></div></div><span class="skill-pct">75%</span></div>
+          <div class="skill-bar-row"><span>SQL</span><div class="skill-track"><div class="skill-fill" data-width="80"></div></div><span class="skill-pct">80%</span></div>
+          <div class="skill-bar-row"><span>HTML / CSS / JS</span><div class="skill-track"><div class="skill-fill" data-width="78"></div></div><span class="skill-pct">78%</span></div>
+        </div>
+
+        <div class="skills-col">
+          <p class="skill-cat">Frameworks &amp; Tools</p>
+          <div class="skill-bar-row"><span>Spring Boot</span><div class="skill-track"><div class="skill-fill" data-width="82"></div></div><span class="skill-pct">82%</span></div>
+          <div class="skill-bar-row"><span>Scikit-learn</span><div class="skill-track"><div class="skill-fill" data-width="80"></div></div><span class="skill-pct">80%</span></div>
+          <div class="skill-bar-row"><span>PostgreSQL / MySQL</span><div class="skill-track"><div class="skill-fill" data-width="78"></div></div><span class="skill-pct">78%</span></div>
+          <div class="skill-bar-row"><span>MediaPipe</span><div class="skill-track"><div class="skill-fill" data-width="70"></div></div><span class="skill-pct">70%</span></div>
+          <div class="skill-bar-row"><span>Git / GitHub</span><div class="skill-track"><div class="skill-fill" data-width="85"></div></div><span class="skill-pct">85%</span></div>
+        </div>
+
+        <div class="skills-col">
+          <p class="skill-cat">Finance &amp; Quant</p>
+          <div class="skill-bar-row"><span>Black-Scholes Pricing</span><div class="skill-track"><div class="skill-fill" data-width="80"></div></div><span class="skill-pct">80%</span></div>
+          <div class="skill-bar-row"><span>Value at Risk (VaR)</span><div class="skill-track"><div class="skill-fill" data-width="75"></div></div><span class="skill-pct">75%</span></div>
+          <div class="skill-bar-row"><span>Excel / Financial Modelling</span><div class="skill-track"><div class="skill-fill" data-width="85"></div></div><span class="skill-pct">85%</span></div>
+          <div class="skill-bar-row"><span>Equity Markets</span><div class="skill-track"><div class="skill-fill" data-width="78"></div></div><span class="skill-pct">78%</span></div>
+          <div class="skill-bar-row"><span>Derivatives / F&amp;O</span><div class="skill-track"><div class="skill-fill" data-width="72"></div></div><span class="skill-pct">72%</span></div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Research Paper -->
+    <div class="research-feature reveal">
+      <div class="rf-layout">
+        <div class="rf-content">
+          <div class="rf-label">
+            <span>Research</span>
+            <span class="rf-badge">First Author · Presenting Author · Published</span>
+          </div>
+          <h2 class="rf-title">Low-Cost Gesture-Guided Swarm Control Using MediaPipe and Decentralized Behavior</h2>
+          <div class="rf-meta">
+            <span class="rf-tag">RAIST 2026</span>
+            <span class="rf-sep">·</span>
+            <span>Atlantis Press / Springer Nature</span>
+            <span class="rf-sep">·</span>
+            <span>Presented at IIIT Surat</span>
+          </div>
+          <p class="rf-abstract">Designed and implemented a cost-effective gesture-based swarm control system where hand landmarks detected by MediaPipe drive decentralized swarm robots. Achieved real-time coordination across multiple agents with sub-200ms latency without centralised computation — enabling autonomous swarm behavior using only a webcam.</p>
+          <div class="rf-pills">
+            <span>Computer Vision</span>
+            <span>Swarm Robotics</span>
+            <span>MediaPipe</span>
+            <span>Decentralized Systems</span>
+            <span>Python</span>
+          </div>
+        </div>
+        <div class="rf-photo-col">
+          <div class="rf-photo-wrap">
+            <img src="research_presentation.jpg" alt="Sahil presenting research at IIIT Surat"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+            <div class="rf-photo-fallback">
+              <span>🎤</span>
+              <span>research_presentation.jpg</span>
+              <small>Add your presentation photo here</small>
+            </div>
+            <div class="rf-photo-label">RAIST 2026 · IIIT Surat</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Experience — Entry 1 -->
+    <div class="exp-feature reveal">
+      <div class="ef-header">
+        <div class="ef-company-block">
+          <div class="ef-company-logo">X</div>
+          <div>
+            <h3 class="ef-role">Financial Market Analyst Intern</h3>
+            <p class="ef-company">Xion Multiventures Pvt. Ltd. <span class="ef-group">(ARB Group Chicago)</span></p>
+          </div>
+        </div>
+        <span class="ef-period">May – July 2026</span>
+      </div>
+
+      <div class="ef-body">
+        <div class="ef-contributions">
+          <div class="ef-contrib-item">
+            <div class="ef-contrib-head">
+              <span class="ef-contrib-title">Market Microstructure Analysis</span>
+              <span class="ef-contrib-bar-label">Impact</span>
+            </div>
+            <p class="ef-contrib-desc">Conducted deep-dive analysis of NSE equity and derivatives market microstructure — order flow, bid-ask dynamics, and intraday liquidity patterns across large-cap and mid-cap segments.</p>
+            <div class="ef-bar"><div class="ef-bar-fill" data-width="88"></div></div>
+          </div>
+          <div class="ef-contrib-item">
+            <div class="ef-contrib-head">
+              <span class="ef-contrib-title">Sector & Macro Research</span>
+              <span class="ef-contrib-bar-label">Impact</span>
+            </div>
+            <p class="ef-contrib-desc">Produced weekly sector research reports covering Banking, IT, and Auto sectors — integrating macro-economic indicators, earnings data, and technical levels to form actionable market views.</p>
+            <div class="ef-bar"><div class="ef-bar-fill" data-width="83"></div></div>
+          </div>
+          <div class="ef-contrib-item">
+            <div class="ef-contrib-head">
+              <span class="ef-contrib-title">Live Trade Monitoring & Reporting</span>
+              <span class="ef-contrib-bar-label">Impact</span>
+            </div>
+            <p class="ef-contrib-desc">Assisted in monitoring live F&amp;O positions during market hours, tracking Greeks exposure, and compiling end-of-day P&amp;L summaries and risk reports for the trading desk.</p>
+            <div class="ef-bar"><div class="ef-bar-fill" data-width="80"></div></div>
+          </div>
+        </div>
+        <div class="ef-tech">
+          <p class="ef-tech-label">Technologies &amp; Tools Used</p>
+          <div class="ef-tech-pills">
+            <span>Python</span><span>Excel</span><span>NSE F&amp;O</span><span>Bloomberg Terminal</span><span>Options Greeks</span><span>Macro Research</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Experience — Entry 2 -->
+    <div class="exp-feature reveal">
+      <div class="ef-header">
+        <div class="ef-company-block">
+          <div class="ef-company-logo">X</div>
+          <div>
+            <h3 class="ef-role">Intern Trading Analyst</h3>
+            <p class="ef-company">Xion Multiventures Pvt. Ltd. <span class="ef-group">(ARB Group Chicago)</span></p>
+          </div>
+        </div>
+        <span class="ef-period">May – July 2025</span>
+      </div>
+
+      <div class="ef-body">
+        <div class="ef-contributions">
+          <div class="ef-contrib-item">
+            <div class="ef-contrib-head">
+              <span class="ef-contrib-title">Options Pricing Engine</span>
+              <span class="ef-contrib-bar-label">Impact</span>
+            </div>
+            <p class="ef-contrib-desc">Built a Python implementation of the Black-Scholes Model for real-time options valuation across NSE F&amp;O instruments. Integrated volatility surface inputs to price both vanilla and path-dependent options.</p>
+            <div class="ef-bar"><div class="ef-bar-fill" data-width="92"></div></div>
+          </div>
+          <div class="ef-contrib-item">
+            <div class="ef-contrib-head">
+              <span class="ef-contrib-title">Risk Management Framework</span>
+              <span class="ef-contrib-bar-label">Impact</span>
+            </div>
+            <p class="ef-contrib-desc">Applied Value at Risk (VaR) and Expected Shortfall (ES) frameworks to quantify portfolio risk exposure. Created stress-test scenarios for tail-risk events across derivative positions.</p>
+            <div class="ef-bar"><div class="ef-bar-fill" data-width="85"></div></div>
+          </div>
+          <div class="ef-contrib-item">
+            <div class="ef-contrib-head">
+              <span class="ef-contrib-title">Financial Dashboards</span>
+              <span class="ef-contrib-bar-label">Impact</span>
+            </div>
+            <p class="ef-contrib-desc">Developed automated Excel dashboards with forecasting models, pivot analytics, and dynamic charting for daily market review sessions. Reduced manual reporting time by ~60%.</p>
+            <div class="ef-bar"><div class="ef-bar-fill" data-width="78"></div></div>
+          </div>
+        </div>
+        <div class="ef-tech">
+          <p class="ef-tech-label">Technologies Used</p>
+          <div class="ef-tech-pills">
+            <span>Python</span><span>Black-Scholes</span><span>VaR</span><span>Excel</span><span>NSE F&amp;O</span><span>NumPy</span><span>Pandas</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Certifications -->
+    <div class="certs-section reveal">
+      <h3 class="certs-heading">Certifications</h3>
+      <div class="certs-grid">
+        <div class="cert-card">
+          <div class="cert-icon">📈</div>
+          <div class="cert-body">
+            <p class="cert-name">Equity Markets Analyst</p>
+            <p class="cert-issuer">Finlatics</p>
+            <p class="cert-desc">Financial markets, equity valuation, technical and fundamental analysis.</p>
+          </div>
+        </div>
+        <div class="cert-card">
+          <div class="cert-icon">📐</div>
+          <div class="cert-body">
+            <p class="cert-name">Quantitative Modeling</p>
+            <p class="cert-issuer">University of Pennsylvania</p>
+            <p class="cert-desc">Stochastic processes, Monte Carlo simulation, and quantitative risk models.</p>
+          </div>
+        </div>
+        <div class="cert-card">
+          <div class="cert-icon">💹</div>
+          <div class="cert-body">
+            <p class="cert-name">Financial Markets</p>
+            <p class="cert-issuer">Yale University</p>
+            <p class="cert-desc">Prof. Robert Shiller's comprehensive course on market behavior, behavioural finance, and risk.</p>
+          </div>
+        </div>
+        <div class="cert-card">
+          <div class="cert-icon">💻</div>
+          <div class="cert-body">
+            <p class="cert-name">Software Engineering Job Simulation</p>
+            <p class="cert-issuer">Wells Fargo (via Forage)</p>
+            <p class="cert-desc">Real-world software engineering tasks including designing systems and writing production code.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     PROJECTS
+══════════════════════════════════════ -->
+<section class="section section-dark" id="projects">
+  <div class="container">
+
+    <div class="section-label reveal">
+      <span class="sec-num">03</span>
+      <span class="sec-title">Projects</span>
+    </div>
+
+    <div class="projects-grid">
+
+      <div class="proj-card reveal" data-delay="0">
+        <div class="proj-card-top">
+          <div class="proj-number">01</div>
+          <div class="proj-links">
+            <a href="https://sahilpanchavishe.github.io" target="_blank" rel="noopener" class="proj-link" aria-label="View project">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </a>
+          </div>
+        </div>
+        <h3 class="proj-title">E-Commerce Backend System</h3>
+        <p class="proj-desc">Production-grade REST API with layered security architecture. Features role-based access control (RBAC), JWT-based stateless authentication, and Hibernate ORM for schema-independent persistence. Supports full CRUD lifecycle for products, orders, and users with pagination and search.</p>
+        <div class="proj-highlights">
+          <div class="proj-hl"><span>🔐</span>JWT Auth &amp; RBAC</div>
+          <div class="proj-hl"><span>📦</span>RESTful API Design</div>
+          <div class="proj-hl"><span>🗄️</span>JPA / Hibernate ORM</div>
+          <div class="proj-hl"><span>🧪</span>Unit Tested</div>
+        </div>
+        <div class="proj-tags">
+          <span>Spring Boot</span><span>Java</span><span>PostgreSQL</span><span>JWT</span><span>JPA/Hibernate</span>
+        </div>
+      </div>
+
+      <div class="proj-card reveal" data-delay="100">
+        <div class="proj-card-top">
+          <div class="proj-number">02</div>
+          <div class="proj-links">
+            <a href="https://sahilpanchavishe.github.io" target="_blank" rel="noopener" class="proj-link" aria-label="View project">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </a>
+          </div>
+        </div>
+        <h3 class="proj-title">Employee Performance Analytics Platform</h3>
+        <p class="proj-desc">End-to-end HR analytics tool combining unsupervised machine learning with business intelligence dashboards. K-Means clustering identifies performance tiers across employee populations. Excel pivot dashboards surface workforce trends for non-technical stakeholders in real time.</p>
+        <div class="proj-highlights">
+          <div class="proj-hl"><span>🤖</span>K-Means Clustering</div>
+          <div class="proj-hl"><span>📊</span>KPI Dashboards</div>
+          <div class="proj-hl"><span>📉</span>Trend Forecasting</div>
+          <div class="proj-hl"><span>⚙️</span>Automated Pipelines</div>
+        </div>
+        <div class="proj-tags">
+          <span>Python</span><span>Scikit-learn</span><span>Java</span><span>MySQL</span><span>Excel</span>
+        </div>
+      </div>
+
+      <div class="proj-card proj-card-wide reveal" data-delay="200">
+        <div class="proj-card-top">
+          <div class="proj-number">03</div>
+          <span class="proj-status">In Progress</span>
+        </div>
+        <h3 class="proj-title">Real-Time NSE F&amp;O Trading Dashboard</h3>
+        <p class="proj-desc">A fully automated live trading analytics dashboard for NSE Futures &amp; Options. Integrates with Zerodha Kite Connect API via WebSocket for real-time price feeds, Greeks computation (Delta, Gamma, Vega, Theta), and position-level P&amp;L. Replaces an existing Excel workbook with a Python/web-based architecture, featuring automated token refresh, Windows Task Scheduler for unattended operation, and DataProcessor logic for streaming data normalization.</p>
+        <div class="proj-highlights">
+          <div class="proj-hl"><span>⚡</span>Real-Time WebSocket Feed</div>
+          <div class="proj-hl"><span>📐</span>Options Greeks Engine</div>
+          <div class="proj-hl"><span>🔄</span>Auto Token Refresh</div>
+          <div class="proj-hl"><span>🖥️</span>Live P&amp;L Tracking</div>
+        </div>
+        <div class="proj-tags">
+          <span>Python</span><span>WebSocket</span><span>Zerodha Kite API</span><span>Pandas</span><span>xlwings</span><span>NSE F&amp;O</span>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     EDITING / CREATIVE
+══════════════════════════════════════ -->
+<section class="section" id="editing">
+  <div class="container">
+
+    <div class="section-label reveal">
+      <span class="sec-num">04</span>
+      <span class="sec-title">Creative Portfolio</span>
+    </div>
+
+    <div class="creative-intro reveal">
+      <p>Beyond code and markets, I am a visual storyteller. I've coordinated visual effects for large-scale events and led graphic design strategy for one of Pune's top college brands.</p>
+    </div>
+
+    <!-- Roles -->
+    <div class="creative-roles reveal">
+      <div class="cr-card">
+        <div class="cr-card-num">C/01</div>
+        <span class="cr-icon">🎬</span>
+        <h3 class="cr-role">VFX Coordinator</h3>
+        <p class="cr-org">Pune Startup Fest — Bhau eCell, COEP</p>
+        <p class="cr-desc">Spearheaded video editing and motion graphics production for one of Pune's largest startup events. Delivered 4+ cinematic promotional videos viewed by 10,000+ attendees across social and live-event screens.</p>
+        <div class="cr-tags"><span>After Effects</span><span>Premiere Pro</span><span>Motion Design</span></div>
+      </div>
+
+      <div class="cr-card">
+        <div class="cr-card-num">C/02</div>
+        <span class="cr-icon">🎨</span>
+        <h3 class="cr-role">Graphic Design Coordinator</h3>
+        <p class="cr-org">COEP Impressions</p>
+        <p class="cr-desc">Led digital design and brand strategy for COEP's official media wing. Oversaw visual identity design, social media content, posters, and large-format print across college events and annual publications.</p>
+        <div class="cr-tags"><span>Photoshop</span><span>Illustrator</span><span>Brand Identity</span></div>
+      </div>
+    </div>
+
+    <!-- Social -->
+    <div class="social-strip reveal">
+      <a class="social-pill" href="https://www.youtube.com/@SahilPanchavishe" target="_blank" rel="noopener">
+        <span class="sp-icon yt"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.495 6.205a3.007 3.007 0 00-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 00.527 6.205a31.247 31.247 0 00-.522 5.805 31.247 31.247 0 00.522 5.783 3.007 3.007 0 002.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 002.088-2.088 31.247 31.247 0 00.5-5.783 31.247 31.247 0 00-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg></span>
+        <div><p class="sp-handle">@SahilPanchavishe</p><p class="sp-desc">YouTube — Cinematic Edits &amp; Breakdowns</p></div>
+        <span class="sp-arrow">→</span>
+      </a>
+      <a class="social-pill" href="https://www.instagram.com/the_editing_sahil/" target="_blank" rel="noopener">
+        <span class="sp-icon ig"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></span>
+        <div><p class="sp-handle">@the_editing_sahil</p><p class="sp-desc">Instagram — VFX, Design &amp; Portfolio</p></div>
+        <span class="sp-arrow">→</span>
+      </a>
+    </div>
+
+    <!-- Reels -->
+    <div class="media-block reveal">
+      <p class="media-block-label">Reels — Click to Play</p>
+      <div class="reels-row">
+        <div class="reel-card" data-src="reel1.mp4" data-title="Reel 01" tabindex="0" role="button" aria-label="Play Reel 01">
+          <video class="reel-thumb" src="reel1.mp4" muted playsinline preload="metadata"
+                 onerror="this.closest('.reel-card').classList.add('no-video')"></video>
+          <div class="reel-overlay">
+            <div class="reel-play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+            <span class="reel-lbl">Reel 01</span>
+          </div>
+          <div class="reel-missing"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="40" height="40"><path d="M15 10l4.553-2.069A1 1 0 0121 8.87v6.26a1 1 0 01-1.447.9L15 14M3 8a2 2 0 012-2h8a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V8z"/></svg><span>reel1.mp4</span><small>Add file to folder</small></div>
+        </div>
+        <div class="reel-card" data-src="reel2.mp4" data-title="Reel 02" tabindex="0" role="button" aria-label="Play Reel 02">
+          <video class="reel-thumb" src="reel2.mp4" muted playsinline preload="metadata"
+                 onerror="this.closest('.reel-card').classList.add('no-video')"></video>
+          <div class="reel-overlay">
+            <div class="reel-play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+            <span class="reel-lbl">Reel 02</span>
+          </div>
+          <div class="reel-missing"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="40" height="40"><path d="M15 10l4.553-2.069A1 1 0 0121 8.87v6.26a1 1 0 01-1.447.9L15 14M3 8a2 2 0 012-2h8a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V8z"/></svg><span>reel2.mp4</span><small>Add file to folder</small></div>
+        </div>
+      </div>
+      <div class="photos-row">
+        <div class="photo-wrap">
+          <img src="edit1.jpg" alt="Design Work 01" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"/>
+          <div class="photo-miss"><span>🖼</span><span>edit1.jpg</span></div>
+          <div class="photo-lbl">Photograph 01</div>
+        </div>
+        <div class="photo-wrap">
+          <img src="edit2.jpg" alt="Design Work 02" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"/>
+          <div class="photo-miss"><span>🖼</span><span>edit2.jpg</span></div>
+          <div class="photo-lbl">Photograph 02</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     HOBBIES
+══════════════════════════════════════ -->
+<section class="section section-dark" id="hobbies">
+  <div class="container">
+
+    <div class="section-label reveal">
+      <span class="sec-num">05</span>
+      <span class="sec-title">Beyond the Screen</span>
+    </div>
+
+    <div class="hobbies-intro reveal">
+      <p>When I'm not writing code or watching options charts, you'll find me on mountain trails. Trekking teaches me the same lesson as engineering — the view is always worth the climb.</p>
+    </div>
+
+    <div class="hobby-cards reveal">
+      <div class="hobby-card hobby-trek">
+        <div class="hc-icon">🏔️</div>
+        <h3>Trekking</h3>
+        <p>Maharashtra Sahyadris, Rajmachi, Harishchandragad — exploring forts and peaks across the Western Ghats.</p>
+      </div>
+      <div class="hobby-card hobby-finance">
+        <div class="hc-icon">📊</div>
+        <h3>Market Watching</h3>
+        <p>Active follower of NSE F&amp;O, derivatives pricing theory, and macro-economic trends. Currently preparing for CAT 2026.</p>
+      </div>
+      <div class="hobby-card hobby-photo">
+        <div class="hc-icon">📸</div>
+        <h3>Photography</h3>
+        <p>Landscape and travel photography on treks. Also explore street photography and event coverage.</p>
+      </div>
+      <div class="hobby-card hobby-edit">
+        <div class="hc-icon">🎞️</div>
+        <h3>Cinematography</h3>
+        <p>Shooting and editing cinematic travel and event videos — blending visual storytelling with technical precision.</p>
+      </div>
+    </div>
+
+    <div class="trek-gallery reveal">
+      <div class="tg-item tg-tall">
+        <img src="trek1.jpg" alt="Trek 1" onerror="this.classList.add('img-err');this.nextElementSibling.style.display='flex';"/>
+        <div class="tg-fallback">🏔️ trek1.jpg</div>
+        <div class="tg-overlay"><span>Basecamp 01</span></div>
+      </div>
+      <div class="tg-item">
+        <img src="trek2.jpg" alt="Trek 2" onerror="this.classList.add('img-err');this.nextElementSibling.style.display='flex';"/>
+        <div class="tg-fallback">🏔️ trek2.jpg</div>
+        <div class="tg-overlay"><span>Basecamp 02</span></div>
+      </div>
+      <div class="tg-item">
+        <img src="trek3.jpg" alt="Trek 3" onerror="this.classList.add('img-err');this.nextElementSibling.style.display='flex';"/>
+        <div class="tg-fallback">🏔️ trek3.jpg</div>
+        <div class="tg-overlay"><span>Basecamp 03</span></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     CONTACT
+══════════════════════════════════════ -->
+<section class="section contact-section" id="contact">
+  <div class="container">
+
+    <div class="section-label reveal">
+      <span class="sec-num">06</span>
+      <span class="sec-title">Let's Connect</span>
+    </div>
+
+    <div class="contact-grid">
+      <div class="contact-left reveal">
+        <h2 class="contact-headline">Open to <em>internships</em>, collaborations &amp; conversations.</h2>
+        <p class="contact-sub">Whether you're building a quant model, need a backend system, want a cinematic reel, or just want to talk about the markets — I'm all ears.</p>
+        <div class="contact-availability">
+          <span class="avail-dot"></span>
+          <span>Available for opportunities starting <strong>2025</strong></span>
+        </div>
+      </div>
+
+      <div class="contact-right reveal">
+        <a class="contact-item" href="mailto:panchavishesahil@gmail.com">
+          <div class="ci-icon">✉</div>
+          <div class="ci-text">
+            <span class="ci-label">Email</span>
+            <span class="ci-value">panchavishesahil@gmail.com</span>
+          </div>
+          <span class="ci-arrow">→</span>
+        </a>
+        <a class="contact-item" href="https://www.linkedin.com/in/sahil-panchavishe-325721289/" target="_blank" rel="noopener">
+          <div class="ci-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </div>
+          <div class="ci-text">
+            <span class="ci-label">LinkedIn</span>
+            <span class="ci-value">sahil-panchavishe-325721289</span>
+          </div>
+          <span class="ci-arrow">→</span>
+        </a>
+        <a class="contact-item" href="https://sahilpanchavishe.github.io" target="_blank" rel="noopener">
+          <div class="ci-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+          </div>
+          <div class="ci-text">
+            <span class="ci-label">GitHub / Website</span>
+            <span class="ci-value">sahilpanchavishe.github.io</span>
+          </div>
+          <span class="ci-arrow">→</span>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container footer-inner">
+    <span>© <span id="yr"></span> Sahil Panchavishe</span>
+    <span class="footer-center">COEP Technological University · Pune</span>
+    <span class="footer-right">Crafted with precision</span>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
